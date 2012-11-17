@@ -6,10 +6,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-public class DC_InventoryManager {
+public class DD_InventoryManager {
 
 	// Cette map fait le lien entre les joueurs et les inventaires sauvegardés
-	private HashMap<String, DC_Inventory> savedInventoriesMap = new HashMap<String, DC_Inventory>();
+	private HashMap<String, DD_Inventory> savedInventoriesMap = new HashMap<String, DD_Inventory>();
 
 	public void savePlayerInventory(Player player) {
 
@@ -20,7 +20,7 @@ public class DC_InventoryManager {
 		int level = player.getLevel();
 
 		// Creation d'un nouvel objet qui contient inventaire, armure et xp
-		DC_Inventory inventory = new DC_Inventory(content, armor, exp, level);
+		DD_Inventory inventory = new DD_Inventory(content, armor, exp, level);
 
 		// Rajout dans la Map, reliée au nom du joueur
 		savedInventoriesMap.put(player.getName(), inventory);
@@ -31,7 +31,7 @@ public class DC_InventoryManager {
 		// Verifie que le joueur ait bien une sauvegarde d'inventaire
 		if (savedInventoriesMap.get(player.getName()) != null) {
 			// Recupération des objets sauvés de la mort
-			DC_Inventory inventory = savedInventoriesMap.get(player.getName());
+			DD_Inventory inventory = savedInventoriesMap.get(player.getName());
 
 			// Déclaration des variable pour manipuler plus facilement
 			ItemStack[] content = inventory.getContents();

@@ -7,7 +7,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class DC_Listener implements Listener {
+public class DD_Listener implements Listener {
 
 	@EventHandler
 	// Cet event permet de gérer la mort des joueurs

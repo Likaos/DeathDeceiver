@@ -2,7 +2,7 @@ package fr.minekahest;
 
 import org.bukkit.inventory.ItemStack;
 
-public class DC_Inventory {
+public class DD_Inventory {
 
 	// Variable de notre classe
 	private ItemStack[] armor;
@@ -11,7 +11,7 @@ public class DC_Inventory {
 	private int level;
 
 	// Contruscteur
-	public DC_Inventory(ItemStack[] content, ItemStack[] armor, float exp,
+	public DD_Inventory(ItemStack[] content, ItemStack[] armor, float exp,
 			int level) {
 		this.content = content;
 		this.armor = armor;

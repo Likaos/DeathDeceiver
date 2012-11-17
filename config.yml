@@ -1,2 +1,4 @@
+#L'objet qui permet de tromper la mort, 0 pour désactiver et empêcher le drop pour tout le monde
 itemID: 322
+#Le message qui signale au joueur qu'il a pu réssuciter sans pertes, 0 pour désactiver
 revive-message: Vous avez trompé la mort et n'avez rien perdu !

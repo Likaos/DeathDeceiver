@@ -8,7 +8,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class DeathDeceive extends JavaPlugin {
 
 	public static DeathDeceive instance;
-	public static DC_InventoryManager im;
+	public static DD_InventoryManager im;
 	public static Logger log;
 	
 	public int confItemID;
@@ -19,7 +19,7 @@ public class DeathDeceive extends JavaPlugin {
 	public void onEnable() {
 
 		// Creation de l'inventory manager
-		im = new DC_InventoryManager();
+		im = new DD_InventoryManager();
 		//Racourcis
 		instance = this;
 		log = this.getLogger();
@@ -32,7 +32,7 @@ public class DeathDeceive extends JavaPlugin {
 
 		// Enregistrement du listener
 		PluginManager pm = getServer().getPluginManager();
-		pm.registerEvents(new DC_Listener(), this);
+		pm.registerEvents(new DD_Listener(), this);
 	}
 
 	// ARRET DU PLUGIN
