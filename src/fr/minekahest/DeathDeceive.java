@@ -2,19 +2,24 @@ package fr.minekahest;
 
 import java.util.logging.Logger;
 
+import net.milkbowl.vault.permission.Permission;
+
 import org.bukkit.plugin.PluginManager;
+import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class DeathDeceive extends JavaPlugin {
-
+	
 	public static DeathDeceive instance;
 	public static DD_InventoryManager im;
-	public static Logger log;
-	
+	public static Logger log;	
 	public int confItemID;
 	public String confMessage;
+	
+	//Déclaration pour Vault
+	public static Permission perms = null;
 
-	// CHARGEMENT DU PLUGIN
+	// ACTIVATION DU PLUGIN
 	@Override
 	public void onEnable() {
 
@@ -33,7 +38,20 @@ public class DeathDeceive extends JavaPlugin {
 		// Enregistrement du listener
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new DD_Listener(), this);
+		
+		// Check Vaull si présent sur le serveur
+		if (pm.getPlugin("Vault") != null) {
+			setupPermissions();
+			log.info("Vault detecte prit en charge");
+		} else { log.info("Vault non prit en charge"); }	
 	}
+		
+	// Methode de vault pour en registrer son hook
+	private boolean setupPermissions() {
+		RegisteredServiceProvider<Permission> rsp = getServer().getServicesManager().getRegistration(Permission.class);
+		        perms = rsp.getProvider();
+		        return perms != null;
+		    }
 
 	// ARRET DU PLUGIN
 	@Override

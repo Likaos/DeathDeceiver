@@ -13,26 +13,23 @@ public class DD_Listener implements Listener {
 	// Cet event permet de gérer la mort des joueurs
 	public void onPlayerDie(PlayerDeathEvent event) {
 		Player player = event.getEntity();
-
+							
 		// On recupère la conf itemID dans le fichier config.yml
 		int itemID = DeathDeceive.instance.confItemID;
-		// Si le joueur possède l'objet dans son inventaire ou si la config est
-		// désactivée.
-		if (player.getInventory().contains(itemID) || itemID == 0) {
+		// Si le joueur possède l'objet dans son inventaire, si la config est désactivée, ou qu'il a une permission
+		if (player.getInventory().contains(itemID) || itemID == 0 || DeathDeceive.perms.has(player, "deathdeceive.noloot") ) {
 			// On retire l'objet en question si un objet est configuré
 			if (itemID != 0)
 				player.getInventory().removeItem(new ItemStack(itemID, 1));
 			// Sauvegarde de l'inventaire avec comme paramètre le joueur, c'est
 			// le seul moyen de réaliser
-			// des opérations sur le joueur sur certains EVENT, ici c'est
-			// facultatif.
+			// des opérations sur le joueur sur certains EVENT, ici c'est facultatif.
 			DeathDeceive.im.savePlayerInventory(player);
 
 			// Suppression de l'xp et des loots pour eviter la duplication ;)
 			event.getDroppedExp();
 			event.getDrops().clear();
 		}
-
 	}
 
 	@EventHandler
