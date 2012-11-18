@@ -64,15 +64,15 @@ public class DD_InventoryManager {
 			};
 
 			// On la lance immédiatement vu que c'est un bugfix.
-			Bukkit.getScheduler().runTask(DeathDeceive.instance, expTask);
+			Bukkit.getScheduler().runTask(DeathDeceiver.instance, expTask);
 
 			// La restoration est arrivée à son terme, on supprime le joueur et
 			// son inventaire de la hashmap.
 			savedInventoriesMap.remove(player.getName());
 
 			// Si un message personnalisé existe, on l'envoit au joueur
-			if (!(DeathDeceive.instance.confMessage.trim().equals("0")))
-				player.sendMessage(DeathDeceive.instance.confMessage);
+			if (!(DeathDeceiver.instance.confMessage.trim().equals("0")))
+				player.sendMessage(DeathDeceiver.instance.confMessage);
 		}
 	}
 }

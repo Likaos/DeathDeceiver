@@ -8,9 +8,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class DeathDeceive extends JavaPlugin {
+public class DeathDeceiver extends JavaPlugin {
 	
-	public static DeathDeceive instance;
+	public static DeathDeceiver instance;
 	public static DD_InventoryManager im;
 	public static Logger log;	
 	public int confItemID;

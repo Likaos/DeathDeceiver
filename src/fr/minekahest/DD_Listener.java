@@ -15,16 +15,16 @@ public class DD_Listener implements Listener {
 		Player player = event.getEntity();
 							
 		// On recupère la conf itemID dans le fichier config.yml
-		int itemID = DeathDeceive.instance.confItemID;
+		int itemID = DeathDeceiver.instance.confItemID;
 		// Si le joueur possède l'objet dans son inventaire, si la config est désactivée, ou qu'il a une permission
-		if (player.getInventory().contains(itemID) || itemID == 0 || DeathDeceive.perms.has(player, "deathdeceive.noloot") ) {
+		if (player.getInventory().contains(itemID) || itemID == 0 || DeathDeceiver.perms.has(player, "deathdeceiver.noloot") ) {
 			// On retire l'objet en question si un objet est configuré
 			if (itemID != 0)
 				player.getInventory().removeItem(new ItemStack(itemID, 1));
 			// Sauvegarde de l'inventaire avec comme paramètre le joueur, c'est
 			// le seul moyen de réaliser
 			// des opérations sur le joueur sur certains EVENT, ici c'est facultatif.
-			DeathDeceive.im.savePlayerInventory(player);
+			DeathDeceiver.im.savePlayerInventory(player);
 
 			// Suppression de l'xp et des loots pour eviter la duplication ;)
 			event.getDroppedExp();
@@ -38,6 +38,6 @@ public class DD_Listener implements Listener {
 		// Recupération de l'inventaire/xp du joueur, ici passer le player en
 		// paramètre
 		// est OBLIGATOIRE, l'event playerRespawn est très capricieux
-		DeathDeceive.im.loadPlayerInventory(event.getPlayer());
+		DeathDeceiver.im.loadPlayerInventory(event.getPlayer());
 	}
 }
